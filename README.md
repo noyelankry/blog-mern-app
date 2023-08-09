@@ -2,8 +2,8 @@
 Hello!
 This is a RECIPE BLOG project, designed to share/read recipes!
 
-![demo image](demo/demo.png | width=500)
-![register demo](demo/demo_register.png | width=500)
+<img src="./demo/demo.png" width="500">
+<img src="./demo/demo_register.png" width="500">
 
 ## Technologies used:
 - Client side: react, tailwindcss
