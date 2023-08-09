@@ -2,7 +2,8 @@
 Hello!
 This is a RECIPE BLOG project, designed to share/read recipes!
 
-![demo image](demo.png)
+![demo image](demo\demo.png)
+![register demo](demo\demo_register.png)
 
 ## Technologies used:
 - Client side: react, tailwindcss
