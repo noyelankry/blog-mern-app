@@ -13,7 +13,7 @@ const Register = () => {
             headers: { 'Content-Type': 'application/json' },
         });
 
-        if (response.ok === 200) {
+        if (response.status === 200) {
             console.log("Registration succeeded!");
         }
         else {
