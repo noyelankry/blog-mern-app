@@ -1,7 +1,9 @@
 import React from 'react'
 import { BiSolidBookBookmark } from 'react-icons/bi'
+import { useEffect } from 'react'
 
 const Navbar = () => {
+    
     return (
         <div className='fixed bg-[#094c55] text-gray-300'>
             <nav className='flex flex-row'>

@@ -2,6 +2,7 @@ import express from 'express'
 import { router as authRoute } from './routes/auth-route.js'
 import cors from 'cors'
 import mongoose from 'mongoose'
+import cookieParser from 'cookie-parser'
 
 const app = express();
 const PORT = 4000;
@@ -9,6 +10,7 @@ const DATABASE_URI = "mongodb://localhost:27017";
 
 app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 app.use(express.json())
+app.use(cookieParser())
 
 app.use('/user', authRoute);
 

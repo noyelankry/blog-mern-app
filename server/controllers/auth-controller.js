@@ -45,3 +45,7 @@ export const login = async (req, res) => {
         res.status(400).json('Wrong username or password')
     }
 }
+
+export const logout = async () => {
+
+}
