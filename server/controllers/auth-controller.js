@@ -27,15 +27,10 @@ export const login = async (req, res) => {
     if (userData) {
         const isPasswordOk = bcrypt.compareSync(password, userData.password)
         if (isPasswordOk) {
-            // user loggeed in
             jwt.sign({ username, id: userData._id }, secret, { expiresIn: '7d' }, (err, token) => {
                 if (err) throw err
-                res.cookie('token', token).json({
-                    id: userDoc._id,
-                    username,
-                })
+                res.cookie('token', token).json('ok')
             })
-            res.json("logged in")
         }
         else {
             res.status(400).json('Wrong username or password')
@@ -46,6 +41,14 @@ export const login = async (req, res) => {
     }
 }
 
-export const logout = async () => {
+export const logout = async (req, res) => {
+    res.cookie('token', '').json('ok')
+}
 
+export const profile = (req, res) => {
+    const { token } = req.cookies
+    jwt.verify(token, secret, {}, (err, info) => {
+        if (err) throw err
+        res.json(info)
+    })
 }
