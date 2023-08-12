@@ -1,5 +1,6 @@
 import express from 'express'
 import { router as authRoute } from './routes/auth-route.js'
+import { router as postRoute } from './routes/post-route.js'
 import cors from 'cors'
 import mongoose from 'mongoose'
 import cookieParser from 'cookie-parser'
@@ -16,6 +17,7 @@ app.use(express.json())
 app.use(cookieParser())
 
 app.use('/user', authRoute);
+app.use('/', postRoute);
 
 mongoose.connect(DATABASE_URI);
 

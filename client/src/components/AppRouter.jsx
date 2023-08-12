@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Register from './Register'
 import Home from './Home'
 import Login from './Login'
+import CreatePost from './CreatePost'
 
 const AppRouter = () => {
     return (
@@ -19,6 +20,11 @@ const AppRouter = () => {
                 <Route path='/login' element={
                     <Login />
                 } />
+
+                <Route path='/create-post' element={
+                    <CreatePost />
+                } />
+
             </Routes>
         </BrowserRouter>
     )
