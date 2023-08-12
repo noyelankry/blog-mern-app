@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Alert from '@mui/material/Alert'
+import UserContext from './UserContext'
 
 const Login = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
     const [error, setError] = useState(null)
+    const { setUserInfo } = useContext(UserContext)
 
     const login = async (event) => {
         event.preventDefault();
@@ -23,7 +25,10 @@ const Login = () => {
 
         if (res.ok === true) {
             setError(false)
-            navigate('/')
+            res.json().then(userInfo => {
+                setUserInfo(userInfo)
+                navigate('/')
+            })
         }
         else {
             setError(true)

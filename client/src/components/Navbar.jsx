@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { BiSolidBookBookmark } from 'react-icons/bi'
 import { useEffect } from 'react'
+import UserContext from './UserContext'
 
 const Navbar = () => {
-    const [username, setUsername] = useState(null)
+    const { setUserInfo, userInfo } = useContext(UserContext)
     useEffect(() => {
         fetch("http://localhost:4000/user/profile", {
             method: 'GET',
@@ -13,8 +14,8 @@ const Navbar = () => {
             },
             credentials: 'include'
         }).then(res => {
-            res.json().then(userData => {
-                setUsername(userData.username)
+            res.json().then(userInfo => {
+                setUserInfo(userInfo)
             })
         })
     }, [])
@@ -24,8 +25,10 @@ const Navbar = () => {
             method: 'POST',
             credentials: 'include'
         })
-        setUsername(null)
+        setUserInfo(null)
     }
+
+    const username = userInfo?.username
 
     return (
         <div name="nav" className='fixed bg-[#094c55] text-gray-300'>

@@ -29,7 +29,10 @@ export const login = async (req, res) => {
         if (isPasswordOk) {
             jwt.sign({ username, id: userData._id }, secret, { expiresIn: '7d' }, (err, token) => {
                 if (err) throw err
-                res.cookie('token', token).json('ok')
+                res.cookie('token', token).json({
+                    id: userData._id,
+                    username
+                })
             })
         }
         else {

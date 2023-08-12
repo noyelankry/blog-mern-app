@@ -2,13 +2,14 @@ import './App.css';
 import React from 'react';
 import Navbar from './components/Navbar';
 import AppRouter from './components/AppRouter';
+import { UserContextProvider } from './components/UserContext';
 
 function App() {
   return (
-    <div className="App">
+    <UserContextProvider className="App">
       < Navbar />
       < AppRouter />
-    </div>
+    </UserContextProvider>
   );
 }
 
