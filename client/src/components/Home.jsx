@@ -1,4 +1,5 @@
 import React from 'react'
+import { IndexPage } from './IndexPage'
 
 const Home = () => {
     return (

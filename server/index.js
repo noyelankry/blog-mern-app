@@ -18,6 +18,7 @@ app.use(cookieParser())
 
 app.use('/user', authRoute);
 app.use('/', postRoute);
+app.use('/uploads', express.static(__dirname + '/uploads'));
 
 mongoose.connect(DATABASE_URI);
 

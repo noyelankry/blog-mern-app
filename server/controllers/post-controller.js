@@ -28,3 +28,18 @@ export const create = async (req, res) => {
         res.json(postDoc);
     })
 }
+
+export const displayAll = async (req, res) => {
+    res.json(
+        await Post.find()
+            .populate('author', ['username'])
+            .sort({ createdAt: -1 })
+            .limit(20)
+    )
+}
+
+export const display = async (req, res) => {
+    const { id } = req.params
+    const PostData = await Post.findById(id)
+    res.json(PostData)
+}

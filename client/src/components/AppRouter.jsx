@@ -4,6 +4,8 @@ import Register from './Register'
 import Home from './Home'
 import Login from './Login'
 import CreatePost from './CreatePost'
+import Post from './Post'
+import { IndexPage } from './IndexPage'
 
 const AppRouter = () => {
     return (
@@ -25,6 +27,13 @@ const AppRouter = () => {
                     <CreatePost />
                 } />
 
+                <Route path='/post' element={
+                    <IndexPage />
+                } />
+
+                <Route path='/post/:id' element={
+                    <Post />
+                } />
             </Routes>
         </BrowserRouter>
     )
