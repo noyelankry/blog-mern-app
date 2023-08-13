@@ -12,13 +12,7 @@ const CreatePost = () => {
     const [level, setLevel] = useState('')
     const [estimatedPrepatationTime, setEstimatedPrepatationTime] = useState('')
     const [files, setFiles] = useState([])
-    const [ingredientsData, setIngredientsData] = useState([{
-        ingredient: {
-            name: '',
-            servingSize: '',
-            servings: 0
-        }
-    }])
+    const [ingredientsData, setIngredientsData] = useState([])
 
     const navigate = useNavigate()
 

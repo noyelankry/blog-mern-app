@@ -1,5 +1,3 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react'
 import { ImMinus } from 'react-icons/im'
 
 const Ingredient = ({ value, name, servingSize, servings, onIngredientChange, onRemove }) => {

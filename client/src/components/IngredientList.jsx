@@ -3,11 +3,7 @@ import Ingredient from './Ingredient'
 import { ImPlus } from 'react-icons/im'
 
 const IngredientList = ({ ingredientsData, setIngredientsData }) => {
-    const [ingredients, setIngredients] = useState([{
-        name: '',
-        servingSize: '',
-        servings: 0
-    }]);
+    const [ingredients, setIngredients] = useState([]);
 
     const handleAddIngredient = () => {
         setIngredients([...ingredients, { name: '', servingSize: '', servings: 0 }])
