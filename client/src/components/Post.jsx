@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import Checkbox from '@mui/material/Checkbox';
-import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
-import Favorite from '@mui/icons-material/Favorite';
-import CheckCircleSharpIcon from '@mui/icons-material/CheckCircleSharp';
-import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp';
-import PostHeader from "./PostHeader";
+import Checkbox from '@mui/material/Checkbox'
+import CheckCircleSharpIcon from '@mui/icons-material/CheckCircleSharp'
+import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp'
+import PostHeader from "./PostHeader"
 
 const Post = () => {
     const [postData, setPostData] = useState('')

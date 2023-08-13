@@ -82,7 +82,7 @@ const Register = () => {
                                         required />
                                 </div>
                                 <div className="ml-3 text-sm">
-                                    <label for="terms" className="font-light text-gray-700">I accept the <a className="font-medium hover:underline text-slate-500" href="#">Terms and Conditions</a></label>
+                                    <label for="terms" className="font-light text-gray-700">I accept the <a className="font-medium hover:underline text-slate-500" href="http://localhost:3000/terms">Terms and Conditions</a></label>
                                 </div>
                             </div>
                             <button type="submit" className="w-full text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-slate-600 hover:bg-slate-700 focus:ring-slate-800">Create an account</button>

@@ -78,7 +78,7 @@ const Login = () => {
                                 type="submit"
                                 class="w-full text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-slate-600 hover:bg-slate-700 focus:ring-slate-800">Login</button>
                             <p class="text-sm font-light text-gray-700 ">
-                                Forgot your password? <a href="#" class="font-medium hover:underline text-slate-500">Click here</a>
+                                Forgot your password? <a href="http://localhost:3000/forgot-password" class="font-medium hover:underline text-slate-500">Click here</a>
                             </p>
                         </form>
                     </div>

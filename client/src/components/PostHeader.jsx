@@ -12,7 +12,7 @@ const PostHeader = ({ postData }) => {
             <div className='img-container w-full mt-5'>
                 <img
                     src={`http://localhost:4000/${postData.image}`}
-                    alt="recipe cover image"
+                    alt="recipe cover"
                     className='object-cover w-full h-[400px] '
                 />
             </div>

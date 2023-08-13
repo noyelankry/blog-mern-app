@@ -12,7 +12,10 @@ const AppRouter = () => {
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={
-                    <Home />
+                    <>
+                        <Home />
+                        <IndexPage />
+                    </>
                 } />
 
                 <Route path='/register' element={
