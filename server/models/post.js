@@ -24,7 +24,10 @@ const postSchema = new Schema({
     },
     estimatedPreparationTime: {
         type: String,
-    }
+    },
+    ingredients: {
+        type: String,
+    },
 }, {
     timestamps: true,
 })

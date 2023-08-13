@@ -20,7 +20,10 @@ app.use('/user', authRoute);
 app.use('/', postRoute);
 app.use('/uploads', express.static(__dirname + '/uploads'));
 
-mongoose.connect(DATABASE_URI);
+mongoose.connect(DATABASE_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
 
 app.listen(PORT, () => {
     console.log(`app is listening on port ${PORT}`);

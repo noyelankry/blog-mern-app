@@ -3,6 +3,7 @@ import { IoCloudUploadOutline } from 'react-icons/io5'
 import { BiTimeFive, BiFork } from 'react-icons/bi'
 import Editor from './Editor'
 import { useNavigate } from 'react-router-dom'
+import IngredientList from './IngredientList'
 
 const CreatePost = () => {
     const [title, setTitle] = useState('')
@@ -11,19 +12,27 @@ const CreatePost = () => {
     const [level, setLevel] = useState('')
     const [estimatedPrepatationTime, setEstimatedPrepatationTime] = useState('')
     const [files, setFiles] = useState([])
+    const [ingredientsData, setIngredientsData] = useState([{
+        ingredient: {
+            name: '',
+            servingSize: '',
+            servings: 0
+        }
+    }])
 
     const navigate = useNavigate()
 
     const createNewPost = async (ev) => {
-        const data = new FormData();
-        data.set('title', title);
-        data.set('summary', summary);
-        data.set('content', content);
-        data.set('EPT', estimatedPrepatationTime);
-        data.set('level', level);
-        data.set('file', files[0]);
+        const data = new FormData()
+        data.set('title', title)
+        data.set('summary', summary)
+        data.set('content', content)
+        data.set('EPT', estimatedPrepatationTime)
+        data.set('level', level)
+        data.set('file', files[0])
+        data.set('ingredients', JSON.stringify(ingredientsData))
 
-        console.log(files)
+        console.log(ingredientsData)
 
         ev.preventDefault();
         fetch('http://localhost:4000/post', {
@@ -31,6 +40,7 @@ const CreatePost = () => {
             body: data,
             credentials: 'include',
         }).then(res => {
+            console.log(res)
             if (res.ok) {
                 navigate('/')
             }
@@ -42,7 +52,7 @@ const CreatePost = () => {
             <h1 className='text-[2rem] font-bold text-center pt-[7rem] text-[#ffd146]'>CREATE A NEW POST</h1>
             <div className='flex flex-col items-center w-full h-[70%]'>
                 <form
-                    className='flex flex-col w-full md:max-w-[600px] mt-10'
+                    className='flex flex-col w-full md:max-w-[800px] mt-10'
                     onSubmit={createNewPost}>
                     <input
                         type="title"
@@ -79,6 +89,7 @@ const CreatePost = () => {
                                 onChange={event => setEstimatedPrepatationTime(event.target.value)} />
                         </label>
                     </div>
+
                     <label htmlFor="file-upload" className='bg-slate-300'>
                         <IoCloudUploadOutline className='inline mr-2 mb-1' />
                         {'Upload an image'}
@@ -90,8 +101,13 @@ const CreatePost = () => {
                             onChange={event => setFiles(event.target.files)}
                             required />
                     </label>
+                    <IngredientList
+                        ingredientsData={ingredientsData}
+                        setIngredientsData={setIngredientsData} />
                     <Editor value={content} onChange={setContent} />
-                    <button className='text-white mt-[25px] p-3 rounded-lg max-w-[50%] bg-red-400 font-extrabold self-center w-[300px]'>CREATE POST</button>
+                    <button
+                        className='text-white mt-[25px] p-3 rounded-lg max-w-[50%] bg-red-400 font-extrabold self-center w-[300px]'>CREATE POST
+                    </button>
                 </form>
             </div>
         </div>

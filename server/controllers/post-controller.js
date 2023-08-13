@@ -15,7 +15,7 @@ export const create = async (req, res) => {
     const { token } = req.cookies;
     jwt.verify(token, secret, {}, async (err, info) => {
         if (err) throw err;
-        const { title, summary, content, estimatedPreparationTime, level } = req.body;
+        const { title, summary, content, EPT, level, ingredients } = req.body;
         const postDoc = await Post.create({
             title,
             summary,
@@ -23,7 +23,8 @@ export const create = async (req, res) => {
             image: newPath,
             author: info.id,
             chefLevel: level,
-            estimatedPreparationTime
+            estimatedPreparationTime: EPT,
+            ingredients
         })
         res.json(postDoc);
     })
