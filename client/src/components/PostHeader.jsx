@@ -8,6 +8,7 @@ const PostHeader = ({ postData }) => {
             <div className='text-center mt-20'>
                 <p className='inline text-red-400 text-xl'>DATE ADDED: </p>
                 <time className='text-xl'>{formatISO9075(new Date(postData.createdAt))}</time>
+                <p className='text-[16px]'>posted by @{postData.author.username}</p>
             </div>
             <div className='img-container w-full mt-5'>
                 <img

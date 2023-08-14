@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
     const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
     const navigate = useNavigate();
@@ -13,7 +14,7 @@ const Register = () => {
         event.preventDefault();
         const response = await fetch('http://localhost:4000/user/register', {
             method: 'POST',
-            body: JSON.stringify({ username, password }),
+            body: JSON.stringify({ username, email, password }),
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -44,17 +45,31 @@ const Register = () => {
 
                         <form className="space-y-4 md:space-y-6" onSubmit={register}>
                             <div>
-                                <label for="email" className="block mb-2 text-sm text-slate-800 font-bold">Your email</label>
+                                <label for="username" className="block mb-2 text-sm text-slate-800 font-bold">Your username</label>
                                 <input
-                                    type="email"
+                                    type="username"
                                     name="username"
-                                    id="email"
+                                    id="username"
                                     className="bg-gray-50 border text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 placeholder-slate-500"
-                                    placeholder="name@mail.com" requislate=""
+                                    placeholder="username" requislate=""
                                     value={username}
                                     onChange={event => setUsername(event.target.value)}
                                     required />
                             </div>
+
+                            <div>
+                                <label for="email" className="block mb-2 text-sm text-slate-800 font-bold">Your email</label>
+                                <input
+                                    type="text"
+                                    name="setEmail"
+                                    id="email"
+                                    className="bg-gray-50 border text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 placeholder-slate-500"
+                                    placeholder="name@mail.com" requislate=""
+                                    value={email}
+                                    onChange={event => setEmail(event.target.value)}
+                                    required />
+                            </div>
+
                             <div>
                                 <label for="password" className="block mb-2 text-sm font-bold text-slate-800">Password</label>
                                 <input

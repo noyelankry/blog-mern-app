@@ -29,6 +29,7 @@ const Navbar = () => {
     }
 
     const username = userInfo?.username
+    const useremail = userInfo?.email
 
     return (
         <div name="nav" className='fixed bg-[#094c55] text-gray-300 w-full'>
@@ -41,7 +42,7 @@ const Navbar = () => {
                     {username && (
                         <>
                             <li className='text-xl mx-3 my-3 py-2'>
-                                <a onClick={logout} >Logout ({username})</a>
+                                <a onClick={logout} >Logout @{username}</a>
                             </li>
                             <li className='text-xl mx-3 my-3 border-[#094c55'>
                                 <button className='rounded-lg border-[3px] border-red-400 px-4 py-1'>

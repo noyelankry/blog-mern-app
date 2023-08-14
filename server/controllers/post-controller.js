@@ -43,5 +43,6 @@ export const displayAll = async (req, res) => {
 export const display = async (req, res) => {
     const { id } = req.params
     const PostData = await Post.findById(id)
+        .populate('author', ['username'])
     res.json(PostData)
 }

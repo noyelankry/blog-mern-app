@@ -8,11 +8,12 @@ const salt = bcrypt.genSaltSync(10)
 const secret = config.jwt.secret
 
 export const register = async (req, res) => {
-    const { username, password } = req.body
+    const { username, email, password } = req.body
 
     try {
         const userData = await User.create({
             username: username.toLowerCase(),
+            email: email.toLowerCase(),
             password: bcrypt.hashSync(password, salt)
         })
         res.json(userData)
@@ -24,12 +25,21 @@ export const register = async (req, res) => {
 
 export const login = async (req, res) => {
     const { username, password } = req.body
-    const userData = await User.findOne({ username: username.toLowerCase() })
+    const userData = await User.findOne({
+        $or: [
+            { email: username.toLowerCase() },
+            { username: username.toLowerCase() }
+        ]
+    })
 
     if (userData) {
         const isPasswordOk = bcrypt.compareSync(password, userData.password)
         if (isPasswordOk) {
-            jwt.sign({ username, id: userData._id }, secret, { expiresIn: '7d' }, (err, token) => {
+            jwt.sign({
+                username: userData.username,
+                email: userData.email,
+                id: userData._id
+            }, secret, { expiresIn: '7d' }, (err, token) => {
                 if (err) throw err
                 res.cookie('token', token).json({
                     id: userData._id,

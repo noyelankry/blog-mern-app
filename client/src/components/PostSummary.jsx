@@ -15,7 +15,7 @@ const PostSummary = ({ _id, title, summary, image, createdAt, author, estimatedP
                     <h2 className='text-[#ffd146] uppercase font-bold text-4xl mb-3'>{title}</h2>
                 </a>
                 <p className="info">
-                    <p className="author font-bold">POSTED BY: {author.username}</p>
+                    <p className="author font-bold">POSTED BY: @{author.username}</p>
                     <time className="font-bold">DATE: {formatISO9075(new Date(createdAt))}</time>
 
                     <div className='font-bold'>
@@ -25,7 +25,12 @@ const PostSummary = ({ _id, title, summary, image, createdAt, author, estimatedP
                         </p>
                     </div>
                 </p>
-                <p className="summary">{summary}</p>
+                <p className="summary">
+                    {`${summary.slice(0, 35)}... `}
+                    <a href={`http://localhost:3000/post/${_id}`} className='underline'>
+                        read more
+                    </a>
+                </p>
             </div>
         </div>
     )
