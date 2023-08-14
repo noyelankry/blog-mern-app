@@ -1,8 +1,9 @@
 import Post from "../models/post"
 import jwt from "jsonwebtoken"
 import fs from "fs"
+import config from "../config/config"
 
-const secret = 'dnkfF387RElf39do0f3feke3923ghvj9DFSG95ff3'
+const secret = config.jwt.secret
 
 export const create = async (req, res) => {
     const { originalname, path } = req.file;
@@ -35,7 +36,7 @@ export const displayAll = async (req, res) => {
         await Post.find()
             .populate('author', ['username'])
             .sort({ createdAt: -1 })
-            .limit(20)
+            .limit(6)
     )
 }
 

@@ -4,15 +4,17 @@ import { router as postRoute } from './routes/post-route.js'
 import cors from 'cors'
 import mongoose from 'mongoose'
 import cookieParser from 'cookie-parser'
+import config from './config/config.js'
 
 const app = express();
-const PORT = 4000;
-const DATABASE_URI = "mongodb://localhost:27017";
+const PORT = config.server.port;
+const DATABASE_URI = config.database.url;
 
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:3000'
+    origin: config.client.url
 }));
+
 app.use(express.json())
 app.use(cookieParser())
 

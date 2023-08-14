@@ -1,9 +1,11 @@
 import User from '../models/user.js'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import config from "../config/config"
 
 const salt = bcrypt.genSaltSync(10)
-const secret = 'dnkfF387RElf39do0f3feke3923ghvj9DFSG95ff3'
+
+const secret = config.jwt.secret
 
 export const register = async (req, res) => {
     const { username, password } = req.body

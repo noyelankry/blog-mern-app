@@ -7,12 +7,12 @@ const PostSummary = ({ _id, title, summary, image, createdAt, author, estimatedP
         <div className='text-gray-300 flex bg-gray-50 bg-opacity-40 rounded-xl m-5 p-2'>
             <div className="">
                 <a href={`http://localhost:3000/post/${_id}`}>
-                    <img src={'http://localhost:4000/' + image} alt="cover" className='h-[200px] mx-5 my-5 rounded-xl' />
+                    <img src={'http://localhost:4000/' + image} alt="cover" className=' max-w-[27x  0px] mx-5 my-5 rounded-xl' />
                 </a>
             </div>
             <div className="texts p-5 text-slate-800">
                 <a href={`http://localhost:3000/post/${_id}`}>
-                    <h2 className='text-[#ffd164] uppercase font-bold text-4xl mb-3'>{title}</h2>
+                    <h2 className='text-[#ffd146] uppercase font-bold text-4xl mb-3'>{title}</h2>
                 </a>
                 <p className="info">
                     <p className="author font-bold">POSTED BY: {author.username}</p>
