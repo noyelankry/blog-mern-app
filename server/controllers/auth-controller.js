@@ -52,8 +52,10 @@ export const logout = async (req, res) => {
 
 export const profile = (req, res) => {
     const { token } = req.cookies
-    jwt.verify(token, secret, {}, (err, info) => {
-        if (err) throw err
-        res.json(info)
-    })
+    if (token) {
+        jwt.verify(token, secret, {}, (err, info) => {
+            if (err) throw err
+            res.json(info)
+        })
+    }
 }
