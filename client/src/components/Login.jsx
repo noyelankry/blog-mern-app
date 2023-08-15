@@ -51,13 +51,13 @@ const Login = () => {
                         {error ? <Alert severity="error"> username or password are incorrect </Alert> : null}
                         <form class="space-y-4 md:space-y-6" onSubmit={login}>
                             <div>
-                                <label for="email" class="block mb-2 text-sm text-slate-800 font-bold">Your email</label>
+                                <label for="email" class="block mb-2 text-sm text-slate-800 font-bold">Username</label>
                                 <input
-                                    type="email"
+                                    type="text"
                                     name="email"
                                     id="email"
                                     class="bg-gray-50 border text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 placeholder-slate-500"
-                                    placeholder="name@mail.com"
+                                    placeholder="email works too"
                                     requislate=""
                                     value={username}
                                     onChange={event => setUsername(event.target.value)} />

@@ -34,18 +34,18 @@ const Navbar = () => {
     return (
         <div name="nav" className='fixed bg-[#094c55] text-gray-300 w-full'>
             <nav className='flex flex-row'>
-                <BiSolidBookBookmark className='text-[#ffd146] text-[3rem] m-2' />
-                <span className='text-2xl mr-2 my-3 py-1 font-extrabold'>
+                <BiSolidBookBookmark className='text-[#ffd146] text-[3rem] m-2 mt-3' />
+                <span className='text-2xl mr-2 mb-3 py-1 mt-4 font-extrabold'>
                     <a href="http://localhost:3000" >RecipeBLOG</a>
                 </span>
                 <ul className='flex flex-row'>
                     {username && (
                         <>
                             <li className='text-xl mx-3 my-3 py-2'>
-                                <a onClick={logout} >Logout @{username}</a>
+                                <a onClick={logout} className='hover:text-slate-400 cursor-pointer' >Logout @{username}</a>
                             </li>
                             <li className='text-xl mx-3 my-3 border-[#094c55'>
-                                <button className='rounded-lg border-[3px] border-red-400 px-4 py-1'>
+                                <button className='rounded-lg border-[3px] border-red-400 px-4 py-1 mt-1'>
                                     <a href="http://localhost:3000/create-post" >Create a new post</a>
                                 </button>
                             </li>

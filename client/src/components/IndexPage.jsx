@@ -13,7 +13,7 @@ export const IndexPage = () => {
     }, []);
     return (
         <>
-            <div name='IndexPage' className="w-[70%] h-screen grid md:grid-cols-2 grid-cols-1 content-center ml-[15%]">
+            <div name='IndexPage' className="w-full lg:w-[70%] min-h-screen content-center pt-20 lg:ml-[15%]">
                 {posts.length > 0 && posts.map(post => (
                     <PostSummary {...post} />
                 ))}

@@ -47,7 +47,7 @@ const Post = () => {
                     <div
                         className="content text-xl bg-white bg-opacity-20 rounded-xl p-3"
                         dangerouslySetInnerHTML={{ __html: postData.content }} />
-                    <h3 className='text-[2rem] font-bold text-center pt-[rem] text-red-400 my-5 uppercase'>ENJOY :)</h3>
+                    <h3 className='text-[2rem] font-bold text-center pt-[rem] text-red-400 my-5 uppercase pb-20'>ENJOY :)</h3>
                 </div>
             </div >
         </div >

@@ -31,6 +31,14 @@ export const create = async (req, res) => {
     })
 }
 
+export const update = async (req, res) => {
+
+}
+
+export const remove = async (req, res) => {
+
+}
+
 export const displayAll = async (req, res) => {
     res.json(
         await Post.find()
