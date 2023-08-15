@@ -32,7 +32,29 @@ export const create = async (req, res) => {
 }
 
 export const update = async (req, res) => {
+    const { originalname, path } = req.file;
 
+    const parts = originalname.split('.');
+    const ext = parts[parts.length - 1];
+    const newPath = path + '.' + ext;
+    fs.renameSync(path, newPath);
+
+    const { token } = req.cookies;
+    jwt.verify(token, secret, {}, async (err, info) => {
+        if (err) throw err;
+        const { title, summary, content, EPT, level, ingredients } = req.body;
+        const postDoc = await Post.create({
+            title,
+            summary,
+            content,
+            image: newPath,
+            author: info.id,
+            chefLevel: level,
+            estimatedPreparationTime: EPT,
+            ingredients
+        })
+        res.json(postDoc);
+    })
 }
 
 export const remove = async (req, res) => {
